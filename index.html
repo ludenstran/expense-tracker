@@ -16,15 +16,15 @@
             <form>
                 <div class="input-wrapper">
                     <label for="expense-name-input">Expense Name:</label>
-                    <input placeholder="e.g., Lunch, Bus ticket, Coffee" type="text" id="expense-name-input" required />
+                    <input placeholder="e.g., Lunch, Bus ticket, Coffee" type="text" id="expense-name-input" />
                 </div>
                 <div class="input-wrapper">
                     <label for="expense-cost-input">Amount ($):</label>
-                    <input placeholder="e.g., 20" type="number" id="expense-cost-input" required />
+                    <input placeholder="e.g., 20" type="number" id="expense-cost-input" />
                 </div>
                 <div class="input-wrapper">
                     <label for="expense-type-input">Choose a category:</label>
-                    <select id="expense-type-input" required>
+                    <select id="expense-type-input">
                         <option value="">Choose a category...</option>
                         <option value="food">🍔 Food</option>
                         <option value="transport">🚲Transport</option>
@@ -43,7 +43,6 @@
         </div>
         <div class="expense-card">
             <h2>Expense List</h2>
-            <p id="empty-expense"></p>
             <ul id="ul-el"></ul>
         </div>
     </div>

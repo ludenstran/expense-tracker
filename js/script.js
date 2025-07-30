@@ -3,7 +3,6 @@ const costInput = document.getElementById("expense-cost-input");
 const typeInput = document.getElementById("expense-type-input");
 const submitBtn = document.getElementById("submit-btn");
 const ulEl = document.getElementById("ul-el");
-const emptyExpense = document.getElementById("empty-expense");
 
 const expenseList = [];
 
@@ -22,26 +21,30 @@ function addExpense() {
 function saveExpense() {
   ulEl.innerHTML = "";
   for (let i = 0; i < expenseList.length; i++) {
+    const expense = expenseList[i];
     ulEl.innerHTML +=
       "<li>" +
-      expenseList[i].name +
+      expense.name +
       " " +
-      expenseList[i].cost +
-      "$" +
+      expense.cost +
       " " +
-      expenseList[i].type +
+      expense.type +
+      " " +
       "</li>";
-  }
-  if (expenseList.length === 0) {
-    emptyExpense.textContent =
-      "No expenses added yet. Add your first expense above! 👆";
   }
 }
 
-submitBtn.addEventListener("click", function () {
-  addExpense();
-  saveExpense();
+function resetInputs() {
   nameInput.value = "";
   costInput.value = "";
   typeInput.value = "";
+}
+
+function removeExpenseItem() {}
+
+submitBtn.addEventListener("click", function () {
+  event.preventDefault();
+  addExpense();
+  saveExpense();
+  resetInputs();
 });
