@@ -23,14 +23,15 @@ function addExpense() {
 }
 
 function saveExpense() {
-  ulEl.innerHTML = "";
+  let ulElList = "";
   for (let i = 0; i < expenseList.length; i++) {
     const expense = expenseList[i];
-    ulEl.innerHTML += `<li class="expense-item">
+    ulElList += `<li class="expense-item">
                       <div class="expense-info"><h4>${expense.name}</h4> <p>${expense.type}</p></div>
                       <div class="expense-price">$${expense.cost}</div>
                       </li>`;
   }
+  ulEl.innerHTML = ulElList;
 }
 
 function caculateExpense() {
