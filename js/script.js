@@ -8,7 +8,7 @@ const ulEl = document.getElementById("ul-el");
 const expenseList = [];
 
 function addExpense() {
-  const expenseName = nameInput.value;
+  const expenseName = nameInput.value.trim();
   const expenseCost = parseFloat(costInput.value);
   const expenseType = typeInput.value;
   const expense = {
@@ -17,10 +17,10 @@ function addExpense() {
     type: expenseType,
   };
   if (expenseName === "" || isNaN(expenseCost) || expenseType === "") {
-    submitBtn.disabled = true;
+    return (submitBtn.disabled = true);
   } else {
-    submitBtn.disabled = false;
     expenseList.push(expense);
+    return (submitBtn.disabled = false);
   }
 }
 
@@ -49,9 +49,7 @@ function resetInputs() {
   typeInput.value = "";
 }
 
-function removeExpenseItem() {}
-
-submitBtn.addEventListener("click", function () {
+submitBtn.addEventListener("click", function (event) {
   event.preventDefault();
   addExpense();
   saveExpense();
