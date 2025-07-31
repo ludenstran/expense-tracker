@@ -22,15 +22,7 @@ function saveExpense() {
   ulEl.innerHTML = "";
   for (let i = 0; i < expenseList.length; i++) {
     const expense = expenseList[i];
-    ulEl.innerHTML +=
-      "<li>" +
-      expense.name +
-      " " +
-      expense.cost +
-      " " +
-      expense.type +
-      " " +
-      "</li>";
+    ulEl.innerHTML += `<li class="expense-item"> <div class="expense-info"><h4>${expense.name}</h4> <p>${expense.type}</p></div> <div class="expense-price">$${expense.cost}</div> </li>`;
   }
 }
 
