@@ -17,10 +17,8 @@ function addExpense() {
     type: expenseType,
   };
   if (expenseName === "" || isNaN(expenseCost) || expenseType === "") {
-    return (submitBtn.disabled = true);
   } else {
     expenseList.push(expense);
-    return (submitBtn.disabled = false);
   }
 }
 
