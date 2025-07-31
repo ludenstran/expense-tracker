@@ -15,14 +15,22 @@ function addExpense() {
     cost: expenseCost,
     type: expenseType,
   };
-  expenseList.push(expense);
+  if (expenseName === "" || isNaN(expenseCost) || expenseType === "") {
+    submitBtn.disabled = true;
+  } else {
+    submitBtn.disabled = false;
+    expenseList.push(expense);
+  }
 }
 
 function saveExpense() {
   ulEl.innerHTML = "";
   for (let i = 0; i < expenseList.length; i++) {
     const expense = expenseList[i];
-    ulEl.innerHTML += `<li class="expense-item"> <div class="expense-info"><h4>${expense.name}</h4> <p>${expense.type}</p></div> <div class="expense-price">$${expense.cost}</div> </li>`;
+    ulEl.innerHTML += `<li class="expense-item">
+                      <div class="expense-info"><h4>${expense.name}</h4> <p>${expense.type}</p></div>
+                      <div class="expense-price">$${expense.cost}</div>
+                      </li>`;
   }
 }
 
