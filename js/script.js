@@ -2,6 +2,7 @@ const nameInput = document.getElementById("expense-name-input");
 const costInput = document.getElementById("expense-cost-input");
 const typeInput = document.getElementById("expense-type-input");
 const submitBtn = document.getElementById("submit-btn");
+const totalExpense = document.getElementById("total-expense-el");
 const ulEl = document.getElementById("ul-el");
 
 const expenseList = [];
@@ -34,6 +35,14 @@ function saveExpense() {
   }
 }
 
+function caculateExpense() {
+  let totalCost = 0;
+  for (let i = 0; i < expenseList.length; i++) {
+    totalCost += expenseList[i].cost;
+  }
+  totalExpense.textContent = "$" + totalCost;
+}
+
 function resetInputs() {
   nameInput.value = "";
   costInput.value = "";
@@ -47,4 +56,5 @@ submitBtn.addEventListener("click", function () {
   addExpense();
   saveExpense();
   resetInputs();
+  caculateExpense();
 });
